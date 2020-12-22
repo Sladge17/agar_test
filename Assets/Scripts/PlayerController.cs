@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
     public float mass;
     private float speed;
     private Vector3 vecScale;
+    public Camera camera;
     // Start is called before the first frame update
     void Start()
     {
-        mass = 10;
+        mass = 0;
         speed = 4;
         vecScale.Set(1, 1, 1);
+        camera.orthographicSize = 4;
     }
 
     // Update is called once per frame
@@ -36,6 +38,10 @@ public class PlayerController : MonoBehaviour
             vecScale.Set((mass / 200 + 0.95f), (mass / 200 + 0.95f), 1);
             randVec.Set(Random.Range(-25f, 25f), Random.Range(-25f, 25f));
             collider.gameObject.transform.position = randVec;
+            if (mass % 100 == 0)
+            {
+                camera.orthographicSize *= 1.02f;
+            }
         }
     }
 }
