@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float speed;
     private Vector3 vecScale;
     public Camera camera;
+    
     // Start is called before the first frame update
     void Start()
     {
