@@ -49,14 +49,10 @@ public class PlayerController : MonoBehaviour
                 vec3eatscale.Set(factoreatscale, factoreatscale, 1);
                 collider.gameObject.transform.localScale = vec3eatscale;
                 if (playermass % 100 == 0)
-                {
                     camera.orthographicSize *= 1.02f;
-                }
+                return;
             }
-            else
-            {
-                SceneManager.LoadScene("menu");
-            }
+            SceneManager.LoadScene("menu");
         }
     }
 }
