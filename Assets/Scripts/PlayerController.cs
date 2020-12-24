@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 vec2eatpos;
     private float factoreatscale;
     private Vector3 vec3eatscale;
+
+    public AudioSource AudioEating;
+    public AudioSource AudioBreaking;
     
     // Start is called before the first frame update
     void Start()
@@ -48,10 +51,12 @@ public class PlayerController : MonoBehaviour
                 factoreatscale = Random.Range(0.2f, 4f);
                 vec3eatscale.Set(factoreatscale, factoreatscale, 1);
                 collider.gameObject.transform.localScale = vec3eatscale;
+                AudioEating.Play();
                 if (playermass % 100 == 0)
                     camera.orthographicSize *= 1.02f;
                 return;
             }
+            AudioBreaking.Play();
             SceneManager.LoadScene("menu");
         }
     }
